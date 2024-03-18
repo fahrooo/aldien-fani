@@ -172,7 +172,7 @@ const util = (() => {
       name
     )}</h2>`;
 
-    document.getElementById("form-nama").value = name;
+    // document.getElementById("form-nama").value = name;
     document.getElementById("nama-tamu").appendChild(div);
   };
 
