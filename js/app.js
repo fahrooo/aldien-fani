@@ -392,6 +392,7 @@ const session = (() => {
         password: body.getAttribute("data-password"),
       })
       .then((res) => {
+        console.log("🚀 ~ .then ~ res:", res);
         if (res.code == 200) {
           localStorage.removeItem("token");
           localStorage.setItem("token", res.data.token);
@@ -399,8 +400,8 @@ const session = (() => {
         }
       })
       .catch((err) => {
+        console.log("🚀 ~ login ~ err:", err);
         // alert(`Terdapat kesalahan: ${err}`);
-        // window.location.reload();
         return;
       });
   };
@@ -435,7 +436,7 @@ const like = (() => {
     let id = button.getAttribute("data-uuid");
 
     if (!token) {
-      alert("Terdapat kesalahan, token kosong !");
+      // alert("Terdapat kesalahan, token kosong !");
       // window.location.reload();
       return;
     }
@@ -463,7 +464,7 @@ const like = (() => {
           }
         })
         .catch((err) => {
-          alert(`Terdapat kesalahan: ${err}`);
+          // alert(`Terdapat kesalahan: ${err}`);
         });
     } else {
       await request("POST", "/api/comment/" + id)
@@ -550,28 +551,28 @@ const comment = (() => {
     let token = localStorage.getItem("token") ?? "";
 
     if (token.length == 0) {
-      alert("Terdapat kesalahan, token kosong !");
+      // alert("Terdapat kesalahan, token kosong !");
       // window.location.reload();
       return;
     }
 
     if (nama.length == 0) {
-      alert("nama tidak boleh kosong");
+      // alert("nama tidak boleh kosong");
       return;
     }
 
     if (nama.length >= 35) {
-      alert("panjangan nama maksimal 35");
+      // alert("panjangan nama maksimal 35");
       return;
     }
 
     if (hadir == 0) {
-      alert("silahkan pilih kehadiran");
+      // alert("silahkan pilih kehadiran");
       return;
     }
 
     if (komentar.length == 0) {
-      alert("pesan tidak boleh kosong");
+      // alert("pesan tidak boleh kosong");
       return;
     }
 
@@ -627,7 +628,7 @@ const comment = (() => {
     let token = localStorage.getItem("token") ?? "";
 
     if (token.length == 0) {
-      alert("Terdapat kesalahan, token kosong !");
+      // alert("Terdapat kesalahan, token kosong !");
       // window.location.reload();
       return;
     }
@@ -774,7 +775,7 @@ const comment = (() => {
 
     let token = localStorage.getItem("token") ?? "";
     if (token.length == 0) {
-      alert("Terdapat kesalahan, token kosong !");
+      // alert("Terdapat kesalahan, token kosong !");
       // window.location.reload();
       return;
     }
@@ -794,8 +795,8 @@ const comment = (() => {
             UCAPAN.innerHTML = `<div class="h6 text-center">Tidak ada data</div>`;
           }
         }
-      })
-      .catch((err) => alert(`Terdapat kesalahan: ${err}`));
+      });
+    // .catch((err) => alert(`Terdapat kesalahan: ${err}`));
   };
 
   const renderLoading = (num) => {
@@ -829,23 +830,23 @@ const comment = (() => {
     let id = document.getElementById("id-balasan").getAttribute("data-uuid");
 
     if (token.length == 0) {
-      alert("Terdapat kesalahan, token kosong !");
+      // alert("Terdapat kesalahan, token kosong !");
       // window.location.reload();
       return;
     }
 
     if (nama.length == 0) {
-      alert("nama tidak boleh kosong");
+      // alert("nama tidak boleh kosong");
       return;
     }
 
     if (nama.length >= 35) {
-      alert("panjangan nama maksimal 35");
+      // alert("panjangan nama maksimal 35");
       return;
     }
 
     if (komentar.length == 0) {
-      alert("pesan tidak boleh kosong");
+      // alert("pesan tidak boleh kosong");
       return;
     }
 
@@ -897,7 +898,7 @@ const comment = (() => {
     let komentar = formPesan.value;
 
     if (token.length == 0) {
-      alert("Terdapat kesalahan, token kosong !");
+      // alert("Terdapat kesalahan, token kosong !");
       // window.location.reload();
       return;
     }
@@ -906,12 +907,12 @@ const comment = (() => {
       document.getElementById(id).getAttribute("data-parent") === "true" &&
       hadir == 0
     ) {
-      alert("silahkan pilih kehadiran");
+      // alert("silahkan pilih kehadiran");
       return;
     }
 
     if (komentar.length == 0) {
-      alert("pesan tidak boleh kosong");
+      // alert("pesan tidak boleh kosong");
       return;
     }
 
@@ -963,7 +964,7 @@ const comment = (() => {
     let id = button.getAttribute("data-uuid");
 
     if (token.length == 0) {
-      alert("Terdapat kesalahan, token kosong !");
+      // alert("Terdapat kesalahan, token kosong !");
       // window.location.reload();
       return;
     }
@@ -1006,7 +1007,7 @@ const comment = (() => {
     let token = localStorage.getItem("token") ?? "";
 
     if (token.length == 0) {
-      alert("Terdapat kesalahan, token kosong !");
+      // alert("Terdapat kesalahan, token kosong !");
       // window.location.reload();
       return;
     }
